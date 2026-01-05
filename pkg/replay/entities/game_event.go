@@ -5,15 +5,15 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+	fps_events "github.com/replay-api/replay-common/pkg/replay/events/game/fps"
 	"github.com/replay-api/replay-common/pkg/replay"
-	"github.com/replay-api/replay-common/pkg/replay/events"
 	shared "github.com/resource-ownership/go-common/pkg/common"
 )
 
 type GameEvent struct {
 	// header/meta
 	ID       uuid.UUID           `json:"id" bson:"_id"`
-	Type     events.EventIDKey   `json:"type" bson:"type"`
+	Type     fps_events.EventIDKey   `json:"type" bson:"type"`
 	GameID   replay.GameIDKey    `json:"game_id" bson:"game_id"`
 	MatchID  uuid.UUID           `json:"match_id" bson:"match_id"`
 	TickID   replay.TickIDType   `json:"tick_id" bson:"tick_id"`
@@ -29,7 +29,7 @@ type GameEvent struct {
 	CreatedAt     time.Time            `json:"-" bson:"created_at"`
 }
 
-func NewGameEvent[T any](matchID uuid.UUID, tickID replay.TickIDType, gameTime time.Duration, eventType events.EventIDKey, payload T, entities map[shared.ResourceType][]interface{}, stats map[replay.StatType][]interface{}, res shared.ResourceOwner) *GameEvent {
+func NewGameEvent[T any](matchID uuid.UUID, tickID replay.TickIDType, gameTime time.Duration, eventType fps_events.EventIDKey, payload T, entities map[shared.ResourceType][]interface{}, stats map[replay.StatType][]interface{}, res shared.ResourceOwner) *GameEvent {
 	return &GameEvent{
 		ID:            uuid.New(),
 		GameID:        replay.CS2_GAME_ID, // TODO: refact => quando aplicavel para go/vlr

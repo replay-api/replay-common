@@ -1,7 +1,7 @@
 package replay
 
 import (
-	"github.com/replay-api/replay-common/pkg/replay/events"
+	fps_events "github.com/replay-api/replay-common/pkg/replay/events/game/fps"
 )
 
 // Gaming-specific types
@@ -18,19 +18,19 @@ type TickIDType float64
 type Game struct {
 	ID     GameIDKey        `json:"id"`             // ID is the unique identifier of the game.
 	Name   string           `json:"name"`           // Name is the name of the game.
-	Events []events.EventIDKey `json:"in_game_events"` // Events is a map of SUPPORTED/IMPLEMENTED in-game events to their corresponding event names.
+	Events []fps_events.EventIDKey `json:"in_game_events"` // Events is a map of SUPPORTED/IMPLEMENTED in-game events to their corresponding event names.
 }
 
-func mapCSEvents() []events.EventIDKey {
-	return []events.EventIDKey{
-		events.Event_MatchStartID,
-		events.Event_RoundMVPAnnouncementID,
-		events.Event_RoundEndID,
-		events.Event_GenericGameEventID,
-		events.Event_ClutchStartID,
-		events.Event_ClutchProgressID,
-		events.Event_ClutchEndID,
-		events.Event_Economy,
+func mapCSEvents() []fps_events.EventIDKey {
+	return []fps_events.EventIDKey{
+		fps_events.Event_MatchStartID,
+		fps_events.Event_RoundMVPAnnouncementID,
+		fps_events.Event_RoundEndID,
+		fps_events.Event_GenericGameEventID,
+		fps_events.Event_ClutchStartID,
+		fps_events.Event_ClutchProgressID,
+		fps_events.Event_ClutchEndID,
+		fps_events.Event_Economy,
 	}
 }
 

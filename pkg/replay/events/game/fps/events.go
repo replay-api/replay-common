@@ -1,4 +1,4 @@
-package events
+package fps
 
 type EventIDKey string
 
