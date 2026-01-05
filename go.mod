@@ -4,7 +4,5 @@ go 1.25.4
 
 require (
 	github.com/google/uuid v1.6.0
-	github.com/resource-ownership/go-common v0.0.0-00010101000000-000000000000
+	github.com/resource-ownership/go-common v0.0.0-20260105112203-d0ca3b914188
 )
-
-replace github.com/resource-ownership/go-common => ../resource-ownership/go-common
