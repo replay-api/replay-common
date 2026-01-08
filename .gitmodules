@@ -1,0 +1,3 @@
+[submodule "replay-common"]
+	path = replay-common
+	url = https://github.com/replay-api/replay-common.git
